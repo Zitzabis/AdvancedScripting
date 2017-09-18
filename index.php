@@ -1,5 +1,7 @@
 <?php
-  session_destroy(); // Resets any stored session variables
+  // Resets any stored session variables
+  session_start();
+  session_destroy();
 ?>
 
 <!DOCTYPE html>
