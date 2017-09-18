@@ -16,6 +16,16 @@
         </nav>
         <h3 class="text-muted">Project #2</h3>
       </div>
+      <h5 class="text-muted">Send the following data to this email address:</h5>
+      <form action="mail.php">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="example@mail.com">
+          <span class="input-group-btn">
+            <button class="btn btn-success" type="submit">Go!</button>
+          </span>
+        </div><!-- /input-group -->
+      </form>
+      <br>
       <table class="table">
         <thead class="thead-inverse">
           <tr>
@@ -25,8 +35,6 @@
           </tr>
         </thead>
         <tbody>
-          
-
           <?php
             while ($line = fgets($gradesFile)) {
               $line = explode(" ", $line);
