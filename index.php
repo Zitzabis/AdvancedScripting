@@ -1,3 +1,7 @@
+<?php
+  session_destroy(); // Resets any stored session variables
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
