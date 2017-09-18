@@ -46,8 +46,8 @@
       <table class="table">
         <thead class="thead-inverse">
           <tr>
-            <th>First Name</th>
             <th>Last Name</th>
+            <th>First Name</th>
             <th>Average Grade</th>
           </tr>
         </thead>
@@ -77,11 +77,11 @@
               }
 
               // Calculate and formate the average
-              $grades = number_format((float)($grades / $i - 2), 2, '.', '');
+              $grades = number_format((float)($grades / ($i - 3)), 2, '.', '');
               ?>
               <tr>
+                <td><?php print $name[1]; // Print last name ?></td>
                 <td><?php print $name[0]; // Print first name ?></td>
-                <td><?php print $name[1]; // Print laste name ?></td>
                 <td><?php print $grades; // Print grade average ?></td>
               </tr>
               <?php
