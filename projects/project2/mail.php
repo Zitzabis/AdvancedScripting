@@ -1,7 +1,11 @@
 <?php
-    session_start();
-    $email = $_GET["email"];
-    $message = "FirstName | LastName | AverageGrade\n----------\n";
+    // Author:      Stephen Floyd
+    // Date:        9/17/17
+    // Assignment:  Project #2
+
+    session_start(); // Start session
+    $email = $_GET["email"]; // GET destination email
+    $message = "FirstName | LastName | AverageGrade\n----------\n"; // Message body headers and content
 
     $gradesPath = "Grades.txt"; // Path to the Grades.txt file
     $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
@@ -31,10 +35,11 @@
         // Calculate and formate the average
         $grades = number_format((float)($grades / $i - 2), 2, '.', '');
 
-        $message = $message . $name[0] . "  -  " . $name[1] . "  -  " . $grades . "\n";
+        $message = $message . $name[0] . "  -  " . $name[1] . "  -  " . $grades . "\n"; // Construct message
     }
     fclose($gradesFile); // Closes the TXT file
 
+    // Build email data
     $to      = $email;
     $subject = 'Grades';
     $headers = 'From: webmaster@zitzasoft.com' . "\r\n" .
@@ -42,13 +47,13 @@
         'X-Mailer: PHP/' . phpversion();
     
     try {
-        mail($to, $subject, $message, $headers);
+        mail($to, $subject, $message, $headers); // Send email
 
-        $_SESSION["emailsent"] = "success";
+        $_SESSION["emailsent"] = "success"; // Set emailsent session variable
     }
     catch (Exception $e) {
-        $_SESSION["emailsent"] = "fail";
+        $_SESSION["emailsent"] = "fail"; // Set emailsent session variable
     }
 
-    header( 'Location: index.php' ) ;
+    header( 'Location: index.php' ); // Send user back to the previous page
 ?>
