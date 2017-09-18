@@ -1,4 +1,12 @@
 <?php
+  // Author:      Stephen Floyd
+  // Date:        9/17/17
+  // Assignment:  Project #2
+
+  session_start();
+  if(!isset($_SESSION['emailsent'])) {
+    $_SESSION["emailsent"] = null;
+  }
   include("../../php/html_head.php");
   $gradesPath = "Grades.txt"; // Path to the Grades.txt file
   $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
@@ -14,17 +22,25 @@
             </li>
           </ul>
         </nav>
-        <h3 class="text-muted">Project #2</h3>
+        <h3 class="text-muted">Project #2 "Grades"</h3>
       </div>
       <h5 class="text-muted">Send the following data to this email address:</h5>
       <form action="mail.php">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="example@mail.com">
+          <input type="text" class="form-control" placeholder="example@mail.com" name="email" id="email">
           <span class="input-group-btn">
             <button class="btn btn-success" type="submit">Go!</button>
           </span>
         </div><!-- /input-group -->
       </form>
+      <br>
+      <?php
+        // Feedback on email sending
+        if ($_SESSION["emailsent"] == "success")
+          echo '<div class="alert alert-success" role="alert">Email Sent!</div>';
+        if ($_SESSION["emailsent"] == "fail")
+          echo '<div class="alert alert-danger" role="alert">Unable to send the email. Please ensure the email address is valid.</div>';
+      ?>
       <br>
       <table class="table">
         <thead class="thead-inverse">
