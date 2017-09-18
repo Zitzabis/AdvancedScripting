@@ -3,9 +3,10 @@
   // Date:        9/17/17
   // Assignment:  Project #2
 
-  session_start();
+  session_start(); // Start session
+  // Check if session variable has been set
   if(!isset($_SESSION['emailsent'])) {
-    $_SESSION["emailsent"] = null;
+    $_SESSION["emailsent"] = null; // Set it to null
   }
   include("../../php/html_head.php");
   $gradesPath = "Grades.txt"; // Path to the Grades.txt file
