@@ -1,7 +1,7 @@
 <?php
   include("../../php/html_head.php");
-  $gradesPath = "Grades.txt";
-  $gradesFile = fopen($gradesPath, 'r'); // Read only mode
+  $gradesPath = "Grades.txt"; // Path to the Grades.txt file
+  $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
 ?>
 
   <body>
@@ -36,32 +36,40 @@
         </thead>
         <tbody>
           <?php
+            // Loop in the lines from the file
             while ($line = fgets($gradesFile)) {
-              $line = explode(" ", $line);
-              $i = 0;
-              $name = [];
-              $grades = 0;
+              $line = explode(" ", $line); // Sepperate the line into an array using " " as a delimiter
+              $i = 0; // Counter
+              $name = []; // Init empty array
+              $grades = 0; // Init and reset grades value
+              
+              // Loop through the line's array
               foreach ($line as $entry) {
+                // Only catch for non EOL and EOF values
                 if ($entry != -1 && $entry != -2) {
+                  // Catch first and last name
                   if ($i < 2) {
-                    $name[] = $entry;
+                    $name[] = $entry; // Store the names into the empty array (PHP auto pushes to the correct index)
                   }
+                  // All other values
                   else {
-                    $grades += $entry;
+                    $grades += $entry; // Adds up the grades
                   }
                 }
-                $i++;
+                $i++; // Increment counter
               }
+
+              // Calculate and formate the average
               $grades = number_format((float)($grades / $i - 2), 2, '.', '');
               ?>
               <tr>
-                <td><?php print $name[0]; ?></td>
-                <td><?php print $name[1]; ?></td>
-                <td><?php print $grades ?></td>
+                <td><?php print $name[0]; // Print first name ?></td>
+                <td><?php print $name[1]; // Print laste name ?></td>
+                <td><?php print $grades; // Print grade average ?></td>
               </tr>
               <?php
             }
-            fclose($gradesFile);
+            fclose($gradesFile); // Closes the TXT file
           ?>
         </tbody>
       </table>
