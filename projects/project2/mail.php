@@ -5,7 +5,7 @@
 
     session_start(); // Start session
     $email = $_GET["email"]; // GET destination email
-    $message = "FirstName | LastName | AverageGrade\n----------\n"; // Message body headers and content
+    $message = "LastName | FirstName | AverageGrade\n----------\n"; // Message body headers and content
 
     $gradesPath = "Grades.txt"; // Path to the Grades.txt file
     $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
@@ -33,9 +33,9 @@
             $i++; // Increment counter
         }
         // Calculate and formate the average
-        $grades = number_format((float)($grades / $i - 2), 2, '.', '');
+        $grades = number_format((float)($grades / ($i - 3)), 2, '.', '');
 
-        $message = $message . $name[0] . "  -  " . $name[1] . "  -  " . $grades . "\n"; // Construct message
+        $message = $message . $name[1] . "  -  " . $name[0] . "  -  " . $grades . "\n"; // Construct message
     }
     fclose($gradesFile); // Closes the TXT file
 
