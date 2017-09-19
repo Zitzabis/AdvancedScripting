@@ -8,7 +8,7 @@
   if(!isset($_SESSION['emailsent'])) {
     $_SESSION["emailsent"] = null; // Set it to null
   }
-  include("../../php/html_head.php");
+  include_once("../../php/html_head.php");
   $gradesPath = "Grades.txt"; // Path to the Grades.txt file
   $gradesFile = fopen($gradesPath, "r+") or die("Unable to open file!"); // Open file in write mode
 ?>
@@ -43,7 +43,6 @@
           echo '<div class="alert alert-danger" role="alert">Unable to send the email. Please ensure the email address is valid.</div>';
       ?>
       <br>
-      <a href="#" id="firstName" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click">superuser</a>
       <table class="table">
         <thead class="thead-inverse">
           <tr>
@@ -54,7 +53,6 @@
         </thead>
         <tbody>
           <?php
-            print fgets($gradesFile);
             // Loop in the lines from the file
             while ($line = fgets($gradesFile)) {
               $line = explode(" ", $line); // Sepperate the line into an array using " " as a delimiter
@@ -86,12 +84,20 @@
                 <td><?php print $name[0]; // Print first name ?></td>
                 <td><?php print $grades; // Print grade average ?></td>
               </tr>
-              <?php
-            }
+          <?php
+          }
             fclose($gradesFile); // Closes the TXT file
           ?>
         </tbody>
       </table>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+      </button>
+      <?php
+        include_once("modal.php");
+      ?>
 
       <footer class="footer">
         <p>&copy; Stephen Floyd <?php echo date("Y"); ?></p>
@@ -99,6 +105,6 @@
 
     </div> <!-- /container -->
 
-    <?php include("../../php/javascript.php") ?>
+    <?php include("../../php/javascript.php"); ?>
   </body>
 </html>
