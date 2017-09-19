@@ -10,7 +10,7 @@
   }
   include("../../php/html_head.php");
   $gradesPath = "Grades.txt"; // Path to the Grades.txt file
-  $gradesFile = fopen($gradesPath, "w") or die("Unable to open file!"); // Open file in write mode
+  $gradesFile = fopen($gradesPath, "r+") or die("Unable to open file!"); // Open file in write mode
 ?>
 
   <body>
@@ -43,6 +43,7 @@
           echo '<div class="alert alert-danger" role="alert">Unable to send the email. Please ensure the email address is valid.</div>';
       ?>
       <br>
+      <a href="#" id="firstName" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click">superuser</a>
       <table class="table">
         <thead class="thead-inverse">
           <tr>
@@ -53,6 +54,7 @@
         </thead>
         <tbody>
           <?php
+            print fgets($gradesFile);
             // Loop in the lines from the file
             while ($line = fgets($gradesFile)) {
               $line = explode(" ", $line); // Sepperate the line into an array using " " as a delimiter
