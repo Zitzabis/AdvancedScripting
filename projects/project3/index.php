@@ -10,7 +10,7 @@
   }
   include("../../php/html_head.php");
   $gradesPath = "Grades.txt"; // Path to the Grades.txt file
-  $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
+  $gradesFile = fopen($gradesPath, "w") or die("Unable to open file!"); // Open file in write mode
 ?>
 
   <body>
