@@ -54,6 +54,15 @@
             <a class="btn btn-primary" href="projects/project2/index.php" role="button">View Project --></a>
           </div>
         </div>
+        <div class="row" style="width: 100%;">
+          <div class="col-lg-6">
+            <h4>Project #3</h4>
+            <p>Grades v2</p>
+          </div>
+          <div class="col-lg-6" style="text-align: right;">
+            <a class="btn btn-primary" href="projects/project3/index.php" role="button">View Project --></a>
+          </div>
+        </div>
       </div>
 
       <footer class="footer">
