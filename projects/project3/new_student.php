@@ -21,7 +21,7 @@
             </li>
           </ul>
         </nav>
-        <h3 class="text-muted">Project #2 "Grades"</h3>
+        <h3 class="text-muted">Project #2 "Grades v2"</h3>
       </div>
       <div style="text-align: right;"><a href="index.php"><button class="btn btn-primary"><- Back</button></a></div>
       <br>
