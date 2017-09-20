@@ -1,18 +1,18 @@
 <?php
-  // Author:      Stephen Floyd
-  // Date:        9/20/17
-  // Assignment:  Project #3
+    // Author:      Stephen Floyd
+    // Date:        9/20/17
+    // Assignment:  Project #3
 
-  session_start(); // Start session
-  // Check if session variable has been set
-  if(!isset($_SESSION['emailsent'])) {
-    $_SESSION["emailsent"] = null; // Set it to null
-  }
-  include("../../php/html_head.php");
-  $gradesPath = "Grades.txt"; // Path to the Grades.txt file
-  $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
+    session_start(); // Start session
+    // Check if session variable has been set
+    if(!isset($_SESSION['emailsent'])) {
+        $_SESSION["emailsent"] = null; // Set it to null
+    }
+    include("../../php/html_head.php");
+    $gradesPath = "Grades.txt"; // Path to the Grades.txt file
+    $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
 
-  $row = $_GET["row"]; // Determine which row is being edited
+    $row = $_GET["row"]; // Determine which row is being edited
 
     if ($row != "null") {
         $gradesPath = "Grades.txt"; // Path to the Grades.txt file
@@ -43,10 +43,11 @@
                         $i++; // Increment counter
                     }
                 }
-                $x++;
             }
+            $x++; // Increment
         }
         fclose($gradesFile); // Closes the TXT file
+
         // Collect names
         $firstName = $name[0];
         $lastName = $name[1];
