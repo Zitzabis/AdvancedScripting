@@ -4,5 +4,4 @@ Donald Duck 70 70 70 60 70 80 70 -1
 Daffy Duck 60 60 50 40 30 20 10 -1
 George Bush 90 90 90 90 90 90 90 -1
 Bill Clinton 90 90 90 90 90 90 90 -1
-Mickey Mouse 100 90 92 85 84 93 94 -1
-Test User 34 23 45 100 -2
+Mickey Mouse 100 90 92 85 84 93 94 -2
