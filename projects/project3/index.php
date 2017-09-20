@@ -10,7 +10,7 @@
   }
   include_once("../../php/html_head.php");
   $gradesPath = "Grades.txt"; // Path to the Grades.txt file
-  $gradesFile = fopen($gradesPath, "r+") or die("Unable to open file!"); // Open file in write mode
+  $gradesFile = fopen($gradesPath, "r") or die("Unable to open file!"); // Open file in write mode
 ?>
 
   <body>
@@ -23,7 +23,7 @@
             </li>
           </ul>
         </nav>
-        <h3 class="text-muted">Project #2 "Grades"</h3>
+        <h3 class="text-muted">Project #3 "Grades v2"</h3>
       </div>
       <h5 class="text-muted">Send the following data to this email address:</h5>
       <form action="mail.php">
@@ -49,10 +49,12 @@
             <th>Last Name</th>
             <th>First Name</th>
             <th>Average Grade</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <?php
+            $x = 0; // Global counter
             // Loop in the lines from the file
             while ($line = fgets($gradesFile)) {
               $line = explode(" ", $line); // Sepperate the line into an array using " " as a delimiter
@@ -83,21 +85,25 @@
                 <td><?php print $name[1]; // Print last name ?></td>
                 <td><?php print $name[0]; // Print first name ?></td>
                 <td><?php print $grades; // Print grade average ?></td>
+                <td>
+                  <!-- Contextual button for informational alert messages -->
+                  <?php print '<a href="edit_grades.php?row=' . $x . '"><button type="button" class="btn btn-info">Edit</button></a>' ?>
+                </td>
               </tr>
           <?php
+            $x++;
           }
             fclose($gradesFile); // Closes the TXT file
           ?>
         </tbody>
       </table>
 
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-        Launch demo modal
-      </button>
-      <?php
-        include_once("modal.php");
-      ?>
+      <!-- Indicates a successful or positive action -->
+      
+      <div class="text-center">
+        <a href="new_student.php" style="align: center;"><button type="button" class="btn btn-success">Add Student</button></a>
+      </div>
+      <br>
 
       <footer class="footer">
         <p>&copy; Stephen Floyd <?php echo date("Y"); ?></p>
