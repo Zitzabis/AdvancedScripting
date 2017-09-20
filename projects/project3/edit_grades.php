@@ -1,7 +1,7 @@
 <?php
   // Author:      Stephen Floyd
-  // Date:        9/17/17
-  // Assignment:  Project #2
+  // Date:        9/20/17
+  // Assignment:  Project #3
 
   session_start(); // Start session
   // Check if session variable has been set
@@ -12,47 +12,50 @@
   $gradesPath = "Grades.txt"; // Path to the Grades.txt file
   $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
 
-  $row = $_GET["row"];
+  $row = $_GET["row"]; // Determine which row is being edited
 
-  if ($row != "null") {
-    $gradesPath = "Grades.txt"; // Path to the Grades.txt file
-    $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
+    if ($row != "null") {
+        $gradesPath = "Grades.txt"; // Path to the Grades.txt file
+        $gradesFile = fopen($gradesPath, 'r'); // Open file in read only mode
 
-    // Loop in the lines from the file
-    $x = 0;
-    while ($line = fgets($gradesFile)) {
-        if ($x == $row) {
-            $line = explode(" ", $line); // Seperate the line into an array using " " as a delimiter
-            $i = 0; // Counter
-            $name = []; // Init empty array
-            $grades = []; // Init empty array
-            
-            // Loop through the line's array
-            foreach ($line as $entry) {
-                // Only catch for non EOL and EOF values
-                if ($entry != -1 && $entry != -2) {
-                // Catch first and last name
-                if ($i < 2) {
-                    $name[] = $entry; // Store the names into the empty array (PHP auto pushes to the correct index)
+        // Loop in the lines from the file
+        $x = 0; // Counter
+        while ($line = fgets($gradesFile)) {
+            // Locate the correct row to pull data from
+            if ($x == $row) {
+                $line = explode(" ", $line); // Seperate the line into an array using " " as a delimiter
+                $i = 0; // Counter
+                $name = []; // Init empty array
+                $grades = []; // Init empty array
+
+                // Loop through the line's array
+                foreach ($line as $entry) {
+                    // Only catch for non EOL and EOF values
+                    if ($entry != -1 && $entry != -2) {
+                        // Catch first and last name
+                        if ($i < 2) {
+                            $name[] = $entry; // Store the names into the empty array (PHP auto pushes to the correct index)
+                        }
+                        // All other values
+                        else {
+                            $grades[] = $entry; // Stores grades
+                        }
+                        $i++; // Increment counter
+                    }
                 }
-                // All other values
-                else {
-                    $grades[] = $entry; // Stores grades
-                }
-                }
-                $i++; // Increment counter
+                $x++;
             }
         }
-        $x++;
+        fclose($gradesFile); // Closes the TXT file
+        // Collect names
+        $firstName = $name[0];
+        $lastName = $name[1];
     }
-    fclose($gradesFile); // Closes the TXT file
-    $firstName = $name[0];
-    $lastName = $name[1];
-  }
-  else {
-    $firstName = $_GET["firstName"];
-    $lastName = $_GET["lastName"];
-  }
+    else {
+        // GET names
+        $firstName = $_GET["firstName"];
+        $lastName = $_GET["lastName"];
+    }
 ?>
 
   <body>
@@ -65,7 +68,7 @@
             </li>
           </ul>
         </nav>
-        <h3 class="text-muted">Project #2 "Grades"</h3>
+        <h3 class="text-muted">Project #3 "Grades v2"</h3>
       </div>
       <div style="text-align: right;"><a href="index.php"><button class="btn btn-primary"><- Back</button></a></div>
       <br>
@@ -73,8 +76,9 @@
       <form action="save_file.php">
         <h5 class="text-muted">Student Information</h5>
         <?php
-            echo '<input type="hidden" id="row" name="row" value="' . $row . '">';
+            echo '<input type="hidden" id="row" name="row" value="' . $row . '">'; // Store hidden row information for use later in form
         ?>
+        <!-- Pass data from PHP to JS -->
         <div id="entries" style="display: none;">
             <?php 
                 if ($row != "null") {
@@ -98,13 +102,16 @@
         <h5 class="text-muted">Edit Grades</h5>
         <div id="grades">
             <?php
+                // Fill out fields if there is already content
                 if ($row != "null") {
                     $i = 1;
+                    // Loop through all grades and output edit fields
                     foreach ($grades as $number) {
                         echo '<input type="number" class="form-control" id="grade' . $i . '" name="grade' . $i . '" value="' . $number . '"><br>';
                         $i++;
                     }
                 }
+                // Place starting field
                 else {
                     echo '<input type="number" class="form-control" id="grade1" name="grade1" placeholder="Grade"><br>';
                 }
@@ -112,6 +119,7 @@
         </div>
         </br>
 
+        <!-- Add button -->
         <button type="button" class="btn btn-success" onclick="addGrade()">
             +
         </button>

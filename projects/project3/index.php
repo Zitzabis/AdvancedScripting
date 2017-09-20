@@ -1,14 +1,14 @@
 <?php
   // Author:      Stephen Floyd
-  // Date:        9/17/17
-  // Assignment:  Project #2
+  // Date:        9/20/17
+  // Assignment:  Project #3
 
   session_start(); // Start session
   // Check if session variable has been set
   if(!isset($_SESSION['emailsent'])) {
     $_SESSION["emailsent"] = null; // Set it to null
   }
-  include_once("../../php/html_head.php");
+  include_once("../../php/html_head.php"); // Include HTML headers
   $gradesPath = "Grades.txt"; // Path to the Grades.txt file
   $gradesFile = fopen($gradesPath, "r") or die("Unable to open file!"); // Open file in write mode
 ?>

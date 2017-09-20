@@ -1,7 +1,7 @@
 <?php
     // Author:      Stephen Floyd
-    // Date:        9/17/17
-    // Assignment:  Project #2
+    // Date:        9/20/17
+    // Assignment:  Project #3
 
     session_start(); // Start session
     $email = $_GET["email"]; // GET destination email
