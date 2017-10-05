@@ -13,4 +13,13 @@
 
     <!-- Custom styles for this template -->
     <link href="../../css/narrow-jumbotron.css" rel="stylesheet">
+
+    <!-- TinyMCE -->
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=bd3j7ff2wtj2ee0xusp848o202i89if0n6vygon2hmarhtlq"></script>
+    <script>tinymce.init({
+        selector:'textarea',
+        branding: false,
+        menubar: false,
+        toolbar: 'bold | italic | underline | alignleft | aligncenter | alignright'
+    });</script>
     </head>
