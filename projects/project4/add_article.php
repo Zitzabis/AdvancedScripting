@@ -13,6 +13,10 @@
         <h3 class="text-muted">Project #4 "Designing the Database"</h3>
       </div>
 
+      <a href="index.php"><button type="button" class="btn btn-info" style="float: right;"><-</button></a>
+      <br>
+      <br>
+
       <h5 class="text-muted">Add Article</h5>
 
       <form class="form text-center" action="scripts/article_add.php">

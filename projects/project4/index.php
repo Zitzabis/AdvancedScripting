@@ -12,6 +12,9 @@
         </nav>
         <h3 class="text-muted">Project #4 "Designing the Database"</h3>
       </div>
+        <a href="add_article.php"><button type="button" class="btn btn-info">New Article</button></a>
+        <br>
+        <br>
         <?php
           include_once("scripts/connect.inc.php");
 
