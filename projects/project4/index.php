@@ -15,7 +15,7 @@
         <?php
           include_once("scripts/connect.inc.php");
 
-          $query = "SELECT `title`, `body`, `author`, DATE_FORMAT(`date`, '%M %D, %Y') as 'date' FROM article ORDER BY `date` DESC";
+          $query = "SELECT `articleID`, `title`, `body`, `author`, DATE_FORMAT(`date`, '%M %D, %Y') as 'date' FROM article ORDER BY `articleID` DESC";
           $query_run = mysqli_query($mysqli, $query); 
           
           while ($query_array = mysqli_fetch_assoc($query_run)) {
