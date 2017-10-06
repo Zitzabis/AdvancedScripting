@@ -54,7 +54,7 @@
               echo "<td>" . $title . "</td>";
               echo "<td>" . $date . "</td>";
               echo '<td><a href="edit.php?row=' . $id . '"><button type="button" class="btn btn-info">Edit</button></a></td>';
-              echo '<td><a href="delete.php?row=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this article?\');"><button type="button" class="btn btn-info">Delete</button></a></td>';
+              echo '<td><a href="scripts/article_delete.php?row=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this article?\');"><button type="button" class="btn btn-danger">Delete</button></a></td>';
             echo "</tr>";
           }
         ?>
