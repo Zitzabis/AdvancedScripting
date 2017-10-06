@@ -19,7 +19,7 @@
         </nav>
         <h3 class="text-muted">Project #5 "Manipulating News Items"</h3>
       </div>
-        <a href="add_article.php"><button type="button" class="btn btn-info">New Article</button></a>
+        <a href="panel.php"><button type="button" class="btn btn-info">Panel</button></a>
         <br>
         <br>
         <?php
