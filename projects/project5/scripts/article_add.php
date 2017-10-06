@@ -1,7 +1,7 @@
 <?php
     // Author:      Stephen Floyd
     // Date:        10/6/17
-    // Assignment:  Project #4
+    // Assignment:  Project #5
 
     // Connect to DB
     include_once("connect.inc.php");

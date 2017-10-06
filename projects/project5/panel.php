@@ -1,7 +1,7 @@
 <?php
   // Author:      Stephen Floyd
   // Date:        10/6/17
-  // Assignment:  Project #4
+  // Assignment:  Project #5
 
   // HTML head file
   include("../../php/html_head.php");
@@ -20,7 +20,7 @@
         <h3 class="text-muted">Project #4 "Designing the Database"</h3>
       </div>
         
-        
+
       <footer class="footer">
         <p>&copy; Stephen Floyd <?php echo date("Y"); ?></p>
       </footer>
