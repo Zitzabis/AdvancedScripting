@@ -1,4 +1,11 @@
-<?php include("../../php/html_head.php") ?>
+<?php
+  // Author:      Stephen Floyd
+  // Date:        10/6/17
+  // Assignment:  Project #4
+
+  // HTML head file
+  include("../../php/html_head.php");
+?>
 
   <body>
     <div class="container">
@@ -17,8 +24,8 @@
       <br>
       <br>
 
+      <!-- Form for creating the article -->
       <h5 class="text-muted">Add Article</h5>
-
       <form class="form text-center" action="scripts/article_add.php">
         <input type="hidden" class="form-control" id="row" name="row" value="null">
         <div class="form-group" style="padding: 0.5em;">
@@ -37,7 +44,5 @@
       </footer>
 
     </div> <!-- /container -->
-
-    <?php include("../../php/javascript.php") ?>
   </body>
 </html>
