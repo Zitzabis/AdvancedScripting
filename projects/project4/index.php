@@ -35,7 +35,7 @@
             <div class="well">
               <h3><?php echo $title; ?></h3>
               <hr>
-              <?php echo $body; ?>
+              <?php echo substr(strip_tags($body), 0, 200) . "..."; ?>
               <hr>
               <div class="text-muted" style="text-align: right;">
                 <?php echo $author; ?>
