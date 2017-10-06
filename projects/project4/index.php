@@ -22,6 +22,7 @@
           $query_run = mysqli_query($mysqli, $query); 
           
           while ($query_array = mysqli_fetch_assoc($query_run)) {
+            $id = $query_array['articleID'];
             $title = $query_array['title'];
             $body = $query_array['body'];
             $author = $query_array['author'];
@@ -44,6 +45,7 @@
                   echo $date;
                 ?>
               </div>
+              <div class="text-center"><a href="article.php?id=<?php echo $id; ?>"><button type="button" class="btn btn-info" style="align-text: center;">Read More</button></a></div>
             </div>
         <?php
           }
