@@ -28,7 +28,7 @@
           <tr>
             <th>ID</th>
             <th>Title</th>
-            <th>Date</th>
+            <th>Creation Date</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -39,7 +39,7 @@
           include_once("scripts/connect.inc.php");
 
           // Build query and run it
-          $query = "SELECT `articleID`, `title`, DATE_FORMAT(`date`, '%M %D, %Y') as 'date' FROM article ORDER BY `articleID` DESC";
+          $query = "SELECT `articleID`, `title`, `date` FROM article ORDER BY `articleID` DESC";
           $query_run = mysqli_query($mysqli, $query); 
           
           // Tick through all results from the query
