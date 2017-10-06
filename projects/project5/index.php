@@ -17,7 +17,7 @@
             </li>
           </ul>
         </nav>
-        <h3 class="text-muted">Project #4 "Designing the Database"</h3>
+        <h3 class="text-muted">Project #5 "Manipulating News Items"</h3>
       </div>
         <a href="add_article.php"><button type="button" class="btn btn-info">New Article</button></a>
         <br>

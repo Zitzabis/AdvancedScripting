@@ -17,7 +17,7 @@
             </li>
           </ul>
         </nav>
-        <h3 class="text-muted">Project #4 "Designing the Database"</h3>
+        <h3 class="text-muted">Project #5 "Manipulating News Items"</h3>
       </div>
         
 
