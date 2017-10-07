@@ -27,7 +27,7 @@
           include_once("scripts/connect.inc.php");
 
           // Build query and run it
-          $query = "SELECT `articleID`, `title`, `body`, `author`, DATE_FORMAT(`date`, '%M %D, %Y') as 'date' FROM article ORDER BY `articleID` DESC";
+          $query = "SELECT `articleID`, `title`, `body`, `author`, DATE_FORMAT(`date`, '%M %D, %Y') as 'date' FROM article WHERE `deleted`=0 ORDER BY `articleID` DESC";
           $query_run = mysqli_query($mysqli, $query); 
           
           // Tick through all results from the query
