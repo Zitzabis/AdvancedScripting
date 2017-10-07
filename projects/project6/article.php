@@ -23,6 +23,8 @@
       </div>
       <a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
       <?php
+        // Check if a user is logged in
+        // If so, display logout link
         session_start();
         if (isset($_SESSION['user_id'])) {
           echo '<a href="scripts/logout.php" style="float: right;">Logout</a>';

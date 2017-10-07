@@ -1,38 +1,41 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['user_id']) || $_SESSION['permission'] < 1) {
-      header('Location: index.php');
-    }
+    // Author:      Stephen Floyd
+    // Date:        10/7/17
+    // Assignment:  Project #6
 
-    if (!isset($_SESSION['user_id'])) {
-        //header('Location: ../login.php');
-    }
+    // All content here is used to help me generate hashed passwords for accounts. Under normal site circumstances, I would build an interface to work with this script, but I'm lazy.
+    // As this file is not part of the assignment, there is no documentation beyond this.
 
-    else if ($_SESSION['rank'] < 3) {
-        //header('Location: panel.php');
-    }
+    // session_start();
+    // if (!isset($_SESSION['user_id']) || $_SESSION['permission'] < 1) {
+    //   header('Location: index.php');
+    // }
 
-    require 'connect.inc.php'; //Connect to database
+    // if (!isset($_SESSION['user_id'])) {
+    //     //header('Location: ../login.php');
+    // }
 
-    $username = $_GET["username"];
-    $password = $_GET["password"];
-    $permission = 1;
+    // else if ($_SESSION['rank'] < 3) {
+    //     //header('Location: panel.php');
+    // }
 
-    /* create a prepared statement */
-    if ($stmt = mysqli_prepare($mysqli, "INSERT INTO `user` (`username`, `passwordHash`, `permission`) VALUES (?, ?, ?)")) {
-        /* bind parameters for markers */
-        mysqli_stmt_bind_param($stmt, "ssi", $username, hash('ripemd160', $password), $permission);
+    // require 'connect.inc.php'; //Connect to database
 
-        /* execute query */
-        if(mysqli_stmt_execute($stmt)) {
-            /* close statement */
-            mysqli_stmt_close($stmt);
-            header('Location: ../index.php');
-        }
-        else {
-            /* close statement */
-            mysqli_stmt_close($stmt);
-            echo "Error submitting record: " . mysqli_error($mysqli);
-        }  
-    }
+    // $username = $_GET["username"];
+    // $password = $_GET["password"];
+    // $permission = 1;
+
+    // /* create a prepared statement */
+    // if ($stmt = mysqli_prepare($mysqli, "INSERT INTO `user` (`username`, `passwordHash`, `permission`) VALUES (?, ?, ?)")) {
+    //     mysqli_stmt_bind_param($stmt, "ssi", $username, hash('ripemd160', $password), $permission);
+
+    //     if(mysqli_stmt_execute($stmt)) {
+    //         mysqli_stmt_close($stmt);
+    //         header('Location: ../index.php');
+    //     }
+    //     else {
+    //         mysqli_stmt_close($stmt);
+    //         echo "Error submitting record: " . mysqli_error($mysqli);
+    //     }  
+    // }
 ?>

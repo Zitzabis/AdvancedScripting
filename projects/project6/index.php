@@ -20,11 +20,14 @@
         <h3 class="text-muted">Project #6 "Protecting the Administration Module"</h3>
       </div>
         <?php
+          // Check if a user is logged in
+          // If so, display panel button and logout link
           session_start();
           if (isset($_SESSION['user_id'])) {
             echo '<a href="panel.php"><button type="button" class="btn btn-info">Panel</button></a>';
             echo '<a href="scripts/logout.php" style="float: right;">Logout</a>';
           }
+          // Otherwise display login form
           else {
         ?>
             <form class="form-inline" action="scripts/checklogin.php">
