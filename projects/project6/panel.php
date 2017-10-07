@@ -27,6 +27,7 @@
       <a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
       <a href="scripts/logout.php" style="float: right;">Logout</a>
 
+      <h4 class="text-muted text-center">Articles</h4>
       <table class="table" style="margin-top: 2em;">
         <thead class="thead-inverse">
           <tr>
