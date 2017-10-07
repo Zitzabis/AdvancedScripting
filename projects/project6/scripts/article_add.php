@@ -13,7 +13,7 @@
 
     $title = $_GET["title"]; // GET destination email
     $body = $_GET["body"]; // GET destination email
-    $author = 1; // Manually set author ID for now (will change later when multiple users are available)
+    $author = $_SESSION['user_id']; // Check currently logged in author
 
     // Insert form data into DB
     if ($stmt = mysqli_prepare($mysqli, 'INSERT INTO article (title, body, author) VALUES (?, ?, ?)')) { // Prepare the fields
