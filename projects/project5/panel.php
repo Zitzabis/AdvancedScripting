@@ -19,8 +19,9 @@
         </nav>
         <h3 class="text-muted">Project #5 "Manipulating News Items"</h3>
       </div>
+      <a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
 
-      <table class="table">
+      <table class="table" style="margin-top: 2em;">
         <thead class="thead-inverse">
           <tr>
             <th>ID</th>

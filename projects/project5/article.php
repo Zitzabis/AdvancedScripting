@@ -21,7 +21,7 @@
         </nav>
         <h3 class="text-muted">Project #5 "Manipulating News Items"</h3>
       </div>
-      <a href="index.php"><button type="button" class="btn btn-info" style="float: right;"><-</button></a>
+      <a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
 
       <?php
         // Build and run query for articles and get title, body, author ID and the creation date

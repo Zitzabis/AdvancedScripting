@@ -8,11 +8,13 @@
 
     <title>Advanced Scripting</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="../../css/narrow-jumbotron.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/fontawesome/css/font-awesome.min.css">
 
     <!-- TinyMCE -->
     <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=bd3j7ff2wtj2ee0xusp848o202i89if0n6vygon2hmarhtlq"></script>
