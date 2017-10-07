@@ -20,7 +20,7 @@
         <h3 class="text-muted">Project #5 "Manipulating News Items"</h3>
       </div>
 
-      <a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
+      <a href="panel.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
       <br>
       <br>
 
