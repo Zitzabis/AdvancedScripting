@@ -3,13 +3,13 @@
 
     $id = $_GET['id'];
 
-    $delete = 1;
+    $restore = 0;
 
     /* create a prepared statement */
     if ($stmt = mysqli_prepare($mysqli, "UPDATE `article` SET `deleted`=? WHERE `article`.`articleID` = $id")) {
 
         /* bind parameters for markers */
-        mysqli_stmt_bind_param($stmt, "i",  $delete);
+        mysqli_stmt_bind_param($stmt, "i",  $restore);
 
         /* execute query */
         if(mysqli_stmt_execute($stmt)) {
