@@ -28,7 +28,7 @@ Name: "article"
 ## Table 2
 Name: "user"
 
-| id           | firstName | lastName | email               | permission |
-|--------------|-----------|----------|---------------------|------------|
-| int(11) (AI) | text      | text     | text                | int(11)    |
-| 1            | Stephen   | Floyd    | stephen@example.com | 1          |
+| id           | username | passwordHash | firstName | lastName | email               | permission |
+|--------------|----------|--------------|-----------|----------|---------------------|------------|
+| int(11) (AI) | text     | text         | text      | text     | text                | int(11)    |
+| 1            | sfloyd   | 5e52fee...   | Stephen   | Floyd    | stephen@example.com | 1          |
