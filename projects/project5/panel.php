@@ -26,7 +26,7 @@
           <tr>
             <th>ID</th>
             <th>Title</th>
-            <th>Creation Date</th>
+            <th>Last Updated</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
@@ -56,7 +56,7 @@
                 echo "<td>" . $id . "</td>";
                 echo "<td>" . $title . "</td>";
                 echo "<td>" . $date . "</td>";
-                echo '<td><a href="edit.php?row=' . $id . '"><button type="button" class="btn btn-info">Edit</button></a></td>';
+                echo '<td><a href="edit.php?id=' . $id . '"><button type="button" class="btn btn-info">Edit</button></a></td>';
                 if ($deleted == 0) {
                   echo '<td><a href="scripts/article_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this article?\');"><button type="button" class="btn btn-danger">Delete</button></a></td>';
                 }
@@ -67,7 +67,7 @@
               echo "</tr>";
             }
           ?>
-          <tr><td><a href="add_article.php"><button type="button" class="btn btn-info">New Article</button></a></td></tr>
+          <tr><td><a href="add_article.php"><button type="button" class="btn btn-success">New Article</button></a></td></tr>
         </tbody>
       </table>
 
