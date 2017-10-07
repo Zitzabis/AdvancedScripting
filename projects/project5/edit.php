@@ -1,6 +1,6 @@
 <?php
     // Author:      Stephen Floyd
-    // Date:        10/6/17
+    // Date:        10/7/17
     // Assignment:  Project #5
 
     // HTML head file
@@ -34,7 +34,7 @@
         $body = $query_array['body'];
       ?>
 
-      <!-- Form for creating the article -->
+      <!-- Form for updating the article -->
       <h5 class="text-muted">Edit Article</h5>
       <form class="form text-center" action="scripts/article_update.php">
         <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $id; ?>">

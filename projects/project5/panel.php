@@ -1,6 +1,6 @@
 <?php
   // Author:      Stephen Floyd
-  // Date:        10/6/17
+  // Date:        10/7/17
   // Assignment:  Project #5
 
   // HTML head file
@@ -48,15 +48,19 @@
               $date = $query_array['date'];
               $deleted = $query_array['deleted'];
 
+              // Check if the row needs to be marked as deleted
               echo "<tr ";
               if ($deleted == 1) {
                 echo 'style="background-color: #ffa5a5;"';
               }
               echo ">";
+                // Fill out table with data
                 echo "<td>" . $id . "</td>";
                 echo "<td>" . $title . "</td>";
                 echo "<td>" . $date . "</td>";
                 echo '<td><a href="edit.php?id=' . $id . '"><button type="button" class="btn btn-info">Edit</button></a></td>';
+
+                // Check if it should show deleted or restored button
                 if ($deleted == 0) {
                   echo '<td><a href="scripts/article_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this article?\');"><button type="button" class="btn btn-danger">Delete</button></a></td>';
                 }
