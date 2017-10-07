@@ -33,7 +33,7 @@
             <form class="form-inline" action="scripts/checklogin.php">
               <div class="form-group" style="margin-right: 1em;">
                 Username
-                <input type="username" class="form-control" name="username" placeholder="Email" style="margin-left: 0.5em;">
+                <input type="username" class="form-control" name="username" placeholder="Username" style="margin-left: 0.5em;">
               </div>
               <div class="form-group">
                 Password 
