@@ -22,6 +22,12 @@
         <h3 class="text-muted">Project #6 "Protecting the Administration Module"</h3>
       </div>
       <a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
+      <?php
+        session_start();
+        if (isset($_SESSION['user_id'])) {
+          echo '<a href="scripts/logout.php" style="float: right;">Logout</a>';
+        }
+      ?>
 
       <?php
         // Build and run query for articles and get title, body, author ID and the creation date

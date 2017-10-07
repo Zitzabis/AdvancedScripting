@@ -3,6 +3,11 @@
   // Date:        10/7/17
   // Assignment:  Project #6
 
+  session_start();
+  if (!isset($_SESSION['user_id']) || $_SESSION['permission'] < 1) {
+    header('Location: index.php');
+  }
+
   // HTML head file
   include("../../php/html_head.php");
 ?>
@@ -20,6 +25,7 @@
         <h3 class="text-muted">Project #6 "Protecting the Administration Module"</h3>
       </div>
       <a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
+      <a href="scripts/logout.php" style="float: right;">Logout</a>
 
       <table class="table" style="margin-top: 2em;">
         <thead class="thead-inverse">

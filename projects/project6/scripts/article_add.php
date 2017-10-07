@@ -3,6 +3,11 @@
     // Date:        10/7/17
     // Assignment:  Project #6
 
+    session_start();
+    if (!isset($_SESSION['user_id']) || $_SESSION['permission'] < 1) {
+      header('Location: index.php');
+    }
+
     // Connect to DB
     include_once("connect.inc.php");
 
