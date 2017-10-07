@@ -13,7 +13,7 @@
 
     // GET which article will be restored
     $id = $_GET['id'];
-]
+
     // Delete val
     $restore = 0;
 
