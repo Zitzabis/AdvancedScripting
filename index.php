@@ -81,6 +81,15 @@
             <a class="btn btn-primary" href="projects/project5/index.php" role="button">View Project --></a>
           </div>
         </div>
+        <div class="row" style="width: 100%;">
+          <div class="col-lg-6">
+            <h4>Project #6</h4>
+            <p>Protecting the Administration Module</p>
+          </div>
+          <div class="col-lg-6" style="text-align: right;">
+            <a class="btn btn-primary" href="projects/project6/index.php" role="button">View Project --></a>
+          </div>
+        </div>
       </div>
 
       <footer class="footer">
