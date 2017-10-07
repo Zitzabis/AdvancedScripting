@@ -1,7 +1,7 @@
 <?php
   // Author:      Stephen Floyd
   // Date:        10/7/17
-  // Assignment:  Project #5
+  // Assignment:  Project #6
 
   // HTML head file
   include("../../php/html_head.php");
@@ -17,7 +17,7 @@
             </li>
           </ul>
         </nav>
-        <h3 class="text-muted">Project #5 "Manipulating News Items"</h3>
+        <h3 class="text-muted">Project #6 "Protecting the Administration Module"</h3>
       </div>
       <a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
 
