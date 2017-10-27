@@ -6,7 +6,7 @@
     // Check if a user is logged in or has the correct permissions to view this page
     // If no, route them back to the site index
     session_start();
-    if (!isset($_SESSION['user_id']) || $_SESSION['permission'] < 1) {
+    if (isset($_SESSION['user_id']) || $_SESSION['teacher'] < 1) {
       header('Location: index.php');
     }
 
@@ -33,12 +33,12 @@
 
     // There can only be 1 result
     if($count == 1) {
-        if ($stmt = mysqli_prepare($mysqli, "SELECT id, permission FROM user WHERE username=? and passwordHash=?")) {
+        if ($stmt = mysqli_prepare($mysqli, "SELECT id, teacher FROM user WHERE username=? and passwordHash=?")) {
             mysqli_stmt_bind_param($stmt, "ss", $username, $password); // Bind data
 
             mysqli_stmt_execute($stmt); // Execute
 
-            mysqli_stmt_bind_result($stmt, $_SESSION['user_id'], $_SESSION['permission']); // Pass data to session
+            mysqli_stmt_bind_result($stmt, $_SESSION['user_id'], $_SESSION['teacher']); // Pass data to session
 
             mysqli_stmt_fetch($stmt); // Fetch data
 
