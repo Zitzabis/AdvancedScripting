@@ -1,10 +1,12 @@
 <?php
     // Check if a user is logged in
     // If so, display panel button and logout link
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     if (isset($_SESSION['user_id'])) {
         if ($_SESSION['teacher'] == "1") {
-        echo '<a href="panel.php"><button type="button" class="btn btn-info">Panel</button></a>';
+            echo '<a href="index.php"><button type="button" class="btn btn-info">Panel</button></a>';
         }
         echo '<a href="scripts/logout.php" style="float: right;">Logout</a>';
     }
