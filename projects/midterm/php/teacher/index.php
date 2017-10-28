@@ -4,7 +4,6 @@
     <tr>
       <th>ID</th>
       <th>Title</th>
-      <th>Active</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
@@ -35,14 +34,11 @@
           // Fill out table with data
           echo "<td>" . $id . "</td>";
           echo "<td>" . $title . "</td>";
-          echo "<td>" . $active . "</td>";
-          echo '<td><a href="edit.php?id=' . $id . '"><button type="button" class="btn btn-info">Edit</button></a></td>';
-
-          echo '<td><a href="scripts/article_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this quiz?\');"><button type="button" class="btn btn-danger">Delete</button></a></td>';
-          
+          echo '<td><a href="edit_quiz.php?id=' . $id . '"><button type="button" class="btn btn-info" disabled>Edit</button></a></td>';
+          echo '<td><a href="scripts/quiz_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this quiz?\');"><button type="button" class="btn btn-danger">Delete</button></a></td>';
         echo "</tr>";
       }
     ?>
-    <tr><td><a href="add_quiz.php"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Quiz</button></a></td></tr>
   </tbody>
 </table>
+<a href="add_quiz.php"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Quiz</button></a><br><br>
