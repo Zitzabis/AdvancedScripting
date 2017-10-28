@@ -6,7 +6,7 @@
     // Check if a user is logged in or has the correct permissions to view this page
     // If no, route them back to the site index
     session_start();
-    if (!isset($_SESSION['user_id']) || $_SESSION['permission'] < 1) {
+    if (!isset($_SESSION['user_id']) || $_SESSION['teacher'] == 1) {
       header('Location: index.php');
     }
     
@@ -20,12 +20,12 @@
     $delete = 1;
 
     // Update article data to be deleted
-    if ($stmt = mysqli_prepare($mysqli, "UPDATE `article` SET `deleted`=? WHERE `article`.`articleID` = $id")) {
+    if ($stmt = mysqli_prepare($mysqli, "UPDATE quiz SET deleted=? WHERE id = $id")) {
         mysqli_stmt_bind_param($stmt, "i",  $delete); // Bind data to query
 
         if(mysqli_stmt_execute($stmt)) {
             mysqli_stmt_close($stmt); // Close query
-            header('Location: ../panel.php'); // Route user
+            header('Location: ../index.php'); // Route user
         }
         else {
             mysqli_stmt_close($stmt); // Close query
