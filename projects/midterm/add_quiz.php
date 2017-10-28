@@ -42,14 +42,13 @@ Option 3
 Option 4</textarea>
       </p>
       <h3 class="text-muted">Add Quiz</h3>
-      <form class="form text-center" action="scripts/article_add.php">
+      <form class="form text-center" action="scripts/quiz_add.php">
         <!-- Pass data from PHP to JS -->
         <div id="entries" style="display: none;">
             <?php 
                 echo 0;
             ?>
         </div>
-        <input type="hidden" class="form-control" id="row" name="row" value="null">
         <div class="form-group" style="padding: 0.5em;">
           <input type="text" class="form-control" id="title" name="title" placeholder="Title">
         </div>

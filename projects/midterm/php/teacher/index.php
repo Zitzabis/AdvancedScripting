@@ -15,7 +15,7 @@
       include_once("scripts/connect.inc.php");
 
       // Build query and run it
-      $query = "SELECT id, title, madeBy, active FROM quiz WHERE madeBy=" . $_SESSION['user_id'] . " ORDER BY `id` DESC";
+      $query = "SELECT id, title, madeBy, active, deleted FROM quiz WHERE madeBy=" . $_SESSION['user_id'] . " AND deleted=0 ORDER BY `id` DESC";
       $query_run = mysqli_query($mysqli, $query); 
       
       // Tick through all results from the query
@@ -24,26 +24,21 @@
         $id = $query_array['id'];
         $title = $query_array['title'];
         $active = $query_array['active'];
+        $deleted = $query_array['deleted'];
 
         // Check if the row needs to be marked as deleted
         echo "<tr ";
         if ($active == 0) {
-          echo 'style="background-color: #ffa5a5;"';
+          echo 'style="background-color: #ffbd68;"';
         }
         echo ">";
           // Fill out table with data
           echo "<td>" . $id . "</td>";
           echo "<td>" . $title . "</td>";
-          echo "<td>" . $date . "</td>";
+          echo "<td>" . $active . "</td>";
           echo '<td><a href="edit.php?id=' . $id . '"><button type="button" class="btn btn-info">Edit</button></a></td>';
 
-          // Check if it should show deleted or restored button
-          if ($deleted == 0) {
-            echo '<td><a href="scripts/article_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this article?\');"><button type="button" class="btn btn-danger">Delete</button></a></td>';
-          }
-          else {
-            echo '<td><a href="scripts/article_restore.php?id=' . $id . '"><button type="button" class="btn btn-success">Restore</button></a></td>';
-          }
+          echo '<td><a href="scripts/article_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this quiz?\');"><button type="button" class="btn btn-danger">Delete</button></a></td>';
           
         echo "</tr>";
       }
