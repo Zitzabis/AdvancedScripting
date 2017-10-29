@@ -17,6 +17,9 @@
       <br>
       <form class="form" action="scripts/quiz_submit.php">
         <?php
+            echo '<input type="hidden" id="quiz" name="quiz" value="' . $_GET['id'] . '">'; // Store hidden row information for use later in form
+        ?>
+        <?php
             // Connect to DB
             include_once("scripts/connect.inc.php");
 
@@ -41,7 +44,7 @@
                 $optionsArray = explode("\n", $options);
 
                 echo '<h1 class="text-center">' . $title . '</h1>';
-                echo '<h3 class="text-muted">' . $question . '</h3>';
+                echo '<h3 class="text-muted">' . $question . ' (' . $points . ' pts.)</h3>';
 
                 foreach ($optionsArray as $value) {
                     echo '<input type="radio" name="question' . $questionID . '" value="' . $value . '"> ' . $value . '<br>';
