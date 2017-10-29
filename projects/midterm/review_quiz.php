@@ -12,7 +12,14 @@
         </nav>
         <h3 class="text-muted">Midterm</h3>
       </div>
-      <a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>
+      <?php
+        session_start();
+        $quiz = $_GET['id'];
+        if ($_SESSION['teacher'] == 0)
+          echo '<a href="index.php"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>';
+        else
+          echo '<a href="student_attempts.php?id=' . $quiz . '"><button type="button" class="btn btn-info"><i class="fa fa-reply" aria-hidden="true"></i></button></a>';
+      ?>
       <?php include("php/login.php"); ?>
       <br>
       <br>
@@ -23,9 +30,14 @@
             // Connect to DB
             include_once("scripts/connect.inc.php");
 
-            $quiz = $_GET['id'];
+            if(isset($_GET['student'])) {
+              $user = $_GET['student'];
+            }
+            else {
+              $user = $_SESSION['user_id'];
+            }
 
-            $query = "SELECT completed, wrong, score FROM user_has_quiz WHERE quizID=" . $quiz . " AND userID=" . $_SESSION['user_id'];
+            $query = "SELECT completed, wrong, score FROM user_has_quiz WHERE quizID=" . $quiz . " AND userID=" . $user;
             $query_run = mysqli_query($mysqli, $query);
             $query_array = mysqli_fetch_assoc($query_run);
             $completed = $query_array['completed'];
@@ -38,6 +50,14 @@
                 $query_run = mysqli_query($mysqli, $query);
                 $query_array = mysqli_fetch_assoc($query_run);
                 $title = $query_array['title'];
+
+                echo '<h1 class="text-center">' . $title . '</h1>';
+                echo '<h4 class="text-center">';
+                if ($_SESSION['teacher'] == 0)
+                  echo 'You';
+                else
+                  echo 'The student';
+                echo ' got a ' . $grade . ' on this quiz.</h4>';
 
                 $query = 'SELECT questionID, question, options, points, answer FROM question WHERE quiz=' . $quiz;
                 $query_run = mysqli_query($mysqli, $query);
@@ -53,8 +73,6 @@
 
                     $optionsArray = explode("\n", $options);
 
-                    echo '<h1 class="text-center">' . $title . '</h1>';
-                    echo '<h4 class="text-center">You got a ' . $grade . ' on this quiz.</h4>';
                     echo '<h3 class="text-muted">';
                     if (in_array($questionID, $wrong))
                         echo '<span class="glyphicon glyphicon-remove" aria-hidden="true" style="color: red;"></span> ';
@@ -72,8 +90,15 @@
                     }
                     echo "<hr>";
                 }
+            }
+            else {
+              echo '<h1 class="text-center">';
+              if ($_SESSION['teacher'] == 0)
+                echo 'You still need to take this quiz</h1>';
+              else
+                echo 'The student still needs to take this quiz</h1>';
+            }
         ?>
-        <?php } else { echo '<h1 class="text-center">You still need to take this quiz</h1>'; } ?>
       <footer class="footer">
         <p>&copy; Stephen Floyd <?php echo date("Y"); ?></p>
       </footer>

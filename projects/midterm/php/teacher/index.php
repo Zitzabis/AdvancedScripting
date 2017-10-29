@@ -29,10 +29,7 @@
           echo "<td>" . $title . "</td>";
           echo '<td>';
             echo '<a href="scripts/quiz_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this quiz?\');"><button type="button" class="btn btn-danger paddedButton">Delete</button></a>';
-            echo '<a href="edit_quiz.php?id=' . $id . '"><button type="button" class="btn btn-info paddedButton"';
-            if ($active == 0)
-              echo 'disabled';
-            echo '>Edit</button></a>';
+            echo '<a href="student_attempts.php?id=' . $id . '"><button type="button" class="btn btn-info paddedButton">Review</button></a>';
             if ($active == 0)
               echo '<a href="scripts/quiz_activate.php?id=' . $id . '"><button type="button" class="btn btn-success paddedButton">Activate</button></a>';
             else
