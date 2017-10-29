@@ -36,6 +36,8 @@
   </tbody>
 </table>
 
+<hr>
+
 <h3>Completed</h3>
 <table class="table" style="margin-top: 2em;">
   <thead class="thead-inverse">
