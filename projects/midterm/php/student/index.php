@@ -20,17 +20,20 @@
         // Fetch columns and store into vars
         $quizID = $query_array['quizID'];
 
-        $q = "SELECT title FROM quiz WHERE id=" . $quizID;
+        $q = "SELECT title, active FROM quiz WHERE id=" . $quizID;
         $qr = mysqli_query($mysqli, $q);
         $qa = mysqli_fetch_assoc($qr);
         $title = $qa['title'];
+        $active = $qa['active'];
 
-        // Check if the row needs to be marked as deleted
-        echo "<tr>";
-          // Fill out table with data
-          echo "<td>" . $title . "</td>";
-          echo '<td><a href="take_quiz.php?id=' . $quizID . '"><button type="button" class="btn btn-primary" style="float: right;">Take Quiz</button></a></td>';
-        echo "</tr>";
+        if ($active != 0) {
+          // Check if the row needs to be marked as deleted
+          echo "<tr>";
+            // Fill out table with data
+            echo "<td>" . $title . "</td>";
+            echo '<td><a href="take_quiz.php?id=' . $quizID . '"><button type="button" class="btn btn-primary" style="float: right;">Take Quiz</button></a></td>';
+          echo "</tr>";
+        }
       }
     ?>
   </tbody>

@@ -2,10 +2,8 @@
 <table class="table" style="margin-top: 2em;">
   <thead class="thead-inverse">
     <tr>
-      <th>ID</th>
       <th>Title</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -26,16 +24,20 @@
         $deleted = $query_array['deleted'];
 
         // Check if the row needs to be marked as deleted
-        echo "<tr ";
-        if ($active == 0) {
-          echo 'style="background-color: #ffbd68;"';
-        }
-        echo ">";
+        echo "<tr>";
           // Fill out table with data
-          echo "<td>" . $id . "</td>";
           echo "<td>" . $title . "</td>";
-          echo '<td><a href="edit_quiz.php?id=' . $id . '"><button type="button" class="btn btn-info" disabled>Edit</button></a></td>';
-          echo '<td><a href="scripts/quiz_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this quiz?\');"><button type="button" class="btn btn-danger">Delete</button></a></td>';
+          echo '<td>';
+            echo '<a href="scripts/quiz_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this quiz?\');"><button type="button" class="btn btn-danger paddedButton">Delete</button></a>';
+            echo '<a href="edit_quiz.php?id=' . $id . '"><button type="button" class="btn btn-info paddedButton"';
+            if ($active == 0)
+              echo 'disabled';
+            echo '>Edit</button></a>';
+            if ($active == 0)
+              echo '<a href="scripts/quiz_activate.php?id=' . $id . '"><button type="button" class="btn btn-success paddedButton">Activate</button></a>';
+            else
+            echo '<a href="scripts/quiz_disable.php?id=' . $id . '"><button type="button" class="btn btn-warning paddedButton">Disable</button></a>';
+            echo '</td>';
         echo "</tr>";
       }
     ?>
