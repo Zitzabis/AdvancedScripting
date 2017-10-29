@@ -8,7 +8,7 @@
         if ($_SESSION['teacher'] == "1") {
             echo '<a href="index.php"><button type="button" class="btn btn-info">Panel</button></a>';
         }
-        echo '<a href="scripts/logout.php" style="float: right;">Logout</a>';
+        echo '<a href="scripts/logout.php" style="float: right;"><button type="button" class="btn btn-default btn-sm">Logout</button></a>';
     }
     // Otherwise display login form
     else {
