@@ -1,4 +1,4 @@
-<h4 class="text-muted text-center">Your Quizzes</h4>
+<h2 class="text-muted text-center">Your Quizzes</h2>
 <table class="table" style="margin-top: 2em;">
   <thead class="thead-inverse">
     <tr>
