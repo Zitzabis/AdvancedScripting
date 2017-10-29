@@ -63,6 +63,7 @@
                     echo $question . ' (' . $points . ' pts.)</h3>';
 
                     foreach ($optionsArray as $value) {
+                        $value = trim($value); // Fixes some weird trailing whitespace
                         echo $value;
                         if ($value == $answer) {
                             echo ' <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color: green;"></span>';

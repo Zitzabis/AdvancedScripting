@@ -24,21 +24,30 @@
     $i = 0; // Counter
     // Loop through all GETs and assign their values to the correct variables
     foreach ($_GET as $key => $value) {
+        echo "i = " . $i . "<br>";
         if ($i == 0) {
             $quizTitle = $value; // Row information
+            //echo "Title: " . $quizTitle . "<br>";
         }
-        else if ($i > 0 && $i < 5) {
-            if ($i == 1)
-                $question[] = $value; // Grades
-            if ($i == 2)
-                $options[] = $value; // Grades
-            if ($i == 3)
-                $answer[] = $value; // Grades
-            if ($i == 4)
-                $point[] = $value; // Grades
-        }
-        else {
-            $i = 0;
+        if ($i > 0 && $i < 5) {
+            if ($i == 1) {
+                echo "tick<br>";
+                $question[] = $value; // Question
+                echo "Question: " . $value . "<br>";
+            }
+            if ($i == 2) {
+                $options[] = $value; // Options
+                echo "Options: " . $value . "<br>";
+            }
+            if ($i == 3) {
+                $answer[] = $value; // Answer
+                echo "Answer: " . $value . "<br>";
+            }
+            if ($i == 4) {
+                $point[] = $value; // Points
+                echo "Points: " . $value . "<br><br>";
+                $i = 0;
+            }
         }
         $i++; // Increment
     }

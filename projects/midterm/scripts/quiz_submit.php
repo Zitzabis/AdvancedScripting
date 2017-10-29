@@ -27,7 +27,7 @@
             $i++; // Increment
         }
         else {
-            $answers[] = $value;
+            $answers[] = trim($value);
         }
     }
 
@@ -43,7 +43,7 @@
         $points = $query_array['points'];
         $answer = $query_array['answer'];
 
-        if ($answers[$counter] == $answer) {
+        if ($answers[$counter] == trim($answer)) {
             $grade = $grade + $points;
         }
         else {

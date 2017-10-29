@@ -32,17 +32,8 @@
       <br>
       <br>
 
-      <!-- Form for creating the article -->
-      <p>
-          Please add each question option on it's own line.<br>
-          For example:
-          <textarea class="form-control" disabled style="height: 100px">Option 1
-Option 2
-Option 3
-Option 4</textarea>
-      </p>
       <h3 class="text-muted">Add Quiz</h3>
-      <form class="form text-center" action="scripts/quiz_add.php">
+      <form class="form" action="scripts/quiz_add.php">
         <!-- Pass data from PHP to JS -->
         <div id="entries" style="display: none;">
             <?php 
@@ -52,16 +43,27 @@ Option 4</textarea>
         <div class="form-group" style="padding: 0.5em;">
           <input type="text" class="form-control" id="title" name="title" placeholder="Title">
         </div>
+        <!-- Form for creating the article -->
+      <p class="text-center">
+          Please add each question option on it's own line.<br>
+          For example:
+          <textarea class="form-control" disabled style="height: 100px">Option 1
+Option 2
+Option 3
+Option 4</textarea>
+      </p>
         <div id="questions">
         
         </div>
         <!-- Add button -->
+        <div class="text-center">
         <button type="button" class="btn btn-primary" onclick="addQuestion()">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Question
         </button>
         <br>
         <br>
         <button type="submit" class="btn btn-success">Post Quiz</button>
+        </div>
       </form>
 
       <br>

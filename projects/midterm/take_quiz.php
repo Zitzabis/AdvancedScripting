@@ -35,6 +35,7 @@
                 $query_run = mysqli_query($mysqli, $query);
                 $query_array = mysqli_fetch_assoc($query_run);
                 $title = $query_array['title'];
+                echo '<h1 class="text-center">' . $title . '</h1>';
 
                 $query = 'SELECT questionID, question, options, points FROM question WHERE quiz=' . $quiz;
                 $query_run = mysqli_query($mysqli, $query);
@@ -49,7 +50,6 @@
 
                     $optionsArray = explode("\n", $options);
 
-                    echo '<h1 class="text-center">' . $title . '</h1>';
                     echo '<h3 class="text-muted">' . $question . ' (' . $points . ' pts.)</h3>';
 
                     foreach ($optionsArray as $value) {

@@ -4,7 +4,7 @@
   <thead class="thead-inverse">
     <tr>
       <th>Title</th>
-      <th>Take</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -29,7 +29,7 @@
         echo "<tr>";
           // Fill out table with data
           echo "<td>" . $title . "</td>";
-          echo '<td><a href="take_quiz.php?id=' . $quizID . '"><button type="button" class="btn btn-primary">Take Quiz</button></a></td>';
+          echo '<td><a href="take_quiz.php?id=' . $quizID . '"><button type="button" class="btn btn-primary" style="float: right;">Take Quiz</button></a></td>';
         echo "</tr>";
       }
     ?>
