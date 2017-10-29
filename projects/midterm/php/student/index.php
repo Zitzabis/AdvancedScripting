@@ -44,6 +44,7 @@
     <tr>
       <th>Title</th>
       <th>Grade</th>
+      <th>Review</th>
     </tr>
   </thead>
   <tbody>
@@ -70,6 +71,7 @@
           // Fill out table with data
           echo "<td>" . $title . "</td>";
           echo '<td>' . $grade . '</td>';
+          echo '<td><a href="review_quiz.php?id=' . $quizID . '"><button type="button" class="btn btn-primary">Review</button></a></td>';
         echo "</tr>";
       }
     ?>
