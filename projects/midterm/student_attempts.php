@@ -22,7 +22,7 @@
             </li>
           </ul>
         </nav>
-        <h3 class="text-muted">Midterm</h3>
+        <h3 class="text-muted">Midterm "Quizmania"</h3>
       </div>
       <?php include("php/login.php"); ?>
       <br>
