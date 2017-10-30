@@ -1,10 +1,17 @@
 <?php
+    // Author:      Stephen Floyd
+    // Date:        10/30/17
+    // Assignment:  Midterm
+
     // Check if a user is logged in
     // If so, display panel button and logout link
+
+    // Start session if it hasn't been done yet
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
     if (isset($_SESSION['user_id'])) {
+        // Show panel button if it's a teacher
         if ($_SESSION['teacher'] == "1") {
             echo '<a href="index.php"><button type="button" class="btn btn-info">Panel</button></a>';
         }

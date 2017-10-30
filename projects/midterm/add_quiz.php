@@ -1,13 +1,13 @@
 <?php
   // Author:      Stephen Floyd
-  // Date:        10/7/17
-  // Assignment:  Project #6
+  // Date:        10/30/17
+  // Assignment:  Midterm
 
   // Check if a user is logged in or has the correct permissions to view this page
   // If no, route them back to the site index
   if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
+      session_start();
+  }
   if (!isset($_SESSION['user_id']) || $_SESSION['teacher'] == 0) {
     header('Location: index.php');
   }
@@ -43,7 +43,7 @@
         <div class="form-group" style="padding: 0.5em;">
           <input type="text" class="form-control" id="title" name="title" placeholder="Title">
         </div>
-        <!-- Form for creating the article -->
+        <!-- Form for creating the quiz -->
       <p class="text-center">
           Please add each question option on it's own line.<br>
           For example:

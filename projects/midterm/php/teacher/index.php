@@ -1,3 +1,11 @@
+<!--
+Author:      Stephen Floyd
+Date:        10/30/17
+Assignment:  Midterm
+
+This displays the teacher content for the index page.
+-->
+
 <h2 class="text-muted text-center">Your Quizzes</h2>
 <table class="table" style="margin-top: 2em;">
   <thead class="thead-inverse">
@@ -11,7 +19,7 @@
       // Connect to DB
       include_once("scripts/connect.inc.php");
 
-      // Build query and run it
+      // Fetch all non-deleted quizzes made by the currently logged in teacher
       $query = "SELECT id, title, madeBy, active, deleted FROM quiz WHERE madeBy=" . $_SESSION['user_id'] . " AND deleted=0 ORDER BY `id` DESC";
       $query_run = mysqli_query($mysqli, $query); 
       
@@ -23,13 +31,13 @@
         $active = $query_array['active'];
         $deleted = $query_array['deleted'];
 
-        // Check if the row needs to be marked as deleted
         echo "<tr>";
           // Fill out table with data
           echo "<td>" . $title . "</td>";
           echo '<td>';
             echo '<a href="scripts/quiz_delete.php?id=' . $id . '" onclick="return confirm(\'Are you sure you want to delete this quiz?\');"><button type="button" class="btn btn-danger paddedButton">Delete</button></a>';
             echo '<a href="student_attempts.php?id=' . $id . '"><button type="button" class="btn btn-info paddedButton">Review</button></a>';
+            // Show Activate or Disable button depending on quiz state
             if ($active == 0)
               echo '<a href="scripts/quiz_activate.php?id=' . $id . '"><button type="button" class="btn btn-success paddedButton">Activate</button></a>';
             else

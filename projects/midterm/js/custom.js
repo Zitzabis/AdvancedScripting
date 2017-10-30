@@ -1,9 +1,16 @@
+// Author:      Stephen Floyd
+// Date:        10/30/17
+// Assignment:  Midterm
+
+// Determine number of entries so far
 var div = document.getElementById("entries");
 var numEntries = div.textContent;
 var count = parseInt(numEntries);
 
+// Print to console
 console.log(count);
 
+// Add HTML form elements for a new question
 function addQuestion() {
     $('#questions').append('<h4>Question ' + (count + 1) + ':</h4>');
     $('#questions').append('<div class="form-group" style="padding: 0.5em;"><div style="color: red; float:left;">*</div> Question:<input type="text" class="form-control" id="question' + count + '" name="question' + count + '" placeholder="Question" required></div>');

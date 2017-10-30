@@ -1,7 +1,7 @@
 <?php
     // Author:      Stephen Floyd
-    // Date:        10/7/17
-    // Assignment:  Project #6
+    // Date:        10/30/17
+    // Assignment:  Midterm
 
     // Check if a user is logged in or has the correct permissions to view this page
     // If no, route them back to the site index
@@ -13,6 +13,7 @@
     // Connect to DB
     include_once("connect.inc.php");
 
+    // Declare vars
     $grade = 0;
     $totalPoints = 0;
     $quiz;
@@ -23,11 +24,11 @@
     $i = 0;
     foreach ($_GET as $key => $value) {
         if ($i == 0) {
-            $quiz = $value; // Row information
+            $quiz = $value; // Quiz ID
             $i++; // Increment
         }
         else {
-            $answers[] = trim($value);
+            $answers[] = trim($value); // Fix any trailing whitepsace
         }
     }
 
@@ -43,30 +44,32 @@
         $points = $query_array['points'];
         $answer = $query_array['answer'];
 
+        // Check if the submitted answer meets the correct answer
         if ($answers[$counter] == trim($answer)) {
-            $grade = $grade + $points;
+            $grade = $grade + $points; // Add question points to user's points
         }
         else {
-            $wrong[] = $questionID;
+            $wrong[] = $questionID; // Mark the question as being wrong
         }
-        $totalPoints = $totalPoints + $points;
-        $counter++;
+        $totalPoints = $totalPoints + $points; // Add question points to total points possible
+        $counter++; // Increment
     }
 
-    $grade = ($grade / $totalPoints) * 100;
+    $grade = ($grade / $totalPoints) * 100; // Calculate final grade
 
-    $wrongString = "";
+    $wrongString = ""; // Declare var
+    // Tick through all wrong values
     foreach ($wrong as $value) {
         if ($wrongString == "")
-            $wrongString = $value;
+            $wrongString = $value; // Start string
         else
-            $wrongString = $wrongString . " " . $value;
+            $wrongString = $wrongString . " " . $value; // Record all questions the user got wrong in a string
     }
     
-    // Delete val
+    // Completed val
     $completed = 1;
 
-    // Update article data to be deleted
+    // Update user's quiz record to be completed, with the final score, and what questionst they got wrong
     if ($stmt = mysqli_prepare($mysqli, "UPDATE user_has_quiz SET completed=?, score=?, wrong=? WHERE quizID=" . $quiz . " AND userID=" . $_SESSION['user_id'])) {
         mysqli_stmt_bind_param($stmt, "iis", $completed, $grade, $wrongString); // Bind data to query
 

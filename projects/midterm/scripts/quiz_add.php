@@ -1,7 +1,7 @@
 <?php
     // Author:      Stephen Floyd
-    // Date:        10/7/17
-    // Assignment:  Project #6
+    // Date:        10/30/17
+    // Assignment:  Midterm
 
     // Check if a user is logged in or has the correct permissions to view this page
     // If no, route them back to the site index
@@ -25,28 +25,24 @@
     // Loop through all GETs and assign their values to the correct variables
     foreach ($_GET as $key => $value) {
         echo "i = " . $i . "<br>";
+        // Quiz title
         if ($i == 0) {
-            $quizTitle = $value; // Row information
-            //echo "Title: " . $quizTitle . "<br>";
+            $quizTitle = $value; // Quiz title
         }
+        // Loop through passed vars and fill arrays
         if ($i > 0 && $i < 5) {
             if ($i == 1) {
-                echo "tick<br>";
                 $question[] = $value; // Question
-                echo "Question: " . $value . "<br>";
             }
             if ($i == 2) {
                 $options[] = $value; // Options
-                echo "Options: " . $value . "<br>";
             }
             if ($i == 3) {
                 $answer[] = $value; // Answer
-                echo "Answer: " . $value . "<br>";
             }
             if ($i == 4) {
                 $point[] = $value; // Points
-                echo "Points: " . $value . "<br><br>";
-                $i = 0;
+                $i = 0; // Reset counter for next question iteration
             }
         }
         $i++; // Increment
@@ -65,11 +61,13 @@
         }  
     }
     
+    // Fetch what the new quiz ID is
     $query = "SELECT id FROM quiz ORDER BY id DESC LIMIT 1";
     $query_run = mysqli_query($mysqli, $query);
     $query_array = mysqli_fetch_assoc($query_run);
     $quiz = $query_array['id'];
 
+    // Loop through the question arrays and insert the data
     for ($x = 0; $x < count($question); $x++) {
         // Insert form data into DB
         if ($stmt = mysqli_prepare($mysqli, 'INSERT INTO question (quiz, question, options, points, answer) VALUES (?, ?, ?, ?, ?)')) { // Prepare the fields

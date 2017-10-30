@@ -1,7 +1,7 @@
 <?php
     // Author:      Stephen Floyd
-    // Date:        10/7/17
-    // Assignment:  Project #6
+    // Date:        10/30/17
+    // Assignment:  Midterm
 
     // Destroy all login details and direct them to home
     session_start();

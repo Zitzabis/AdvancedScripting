@@ -1,7 +1,7 @@
 <?php
     // Author:      Stephen Floyd
-    // Date:        10/7/17
-    // Assignment:  Project #6
+    // Date:        10/30/17
+    // Assignment:  Midterm
 
     // Check if a user is logged in or has the correct permissions to view this page
     // If no, route them back to the site index
@@ -13,20 +13,22 @@
     // Connect to DB
     include_once("connect.inc.php");
 
+    // Declare vars
     $quiz;
     $students = [];
     // Loop through all GETs and assign their values to the correct variables
     $i = 0;
     foreach ($_GET as $key => $value) {
         if ($i == 0) {
-            $quiz = $value; // Row information
+            $quiz = $value; // Quiz
             $i++; // Increment
         }
         else {
-            $students[] = $key;
+            $students[] = $key; // Pull all student IDs to be applied
         }
     }
 
+    // Loop through all available students and add their information along with the current quiz to the DB
     for ($x = 0; $x < count($students); $x++) {
         // Insert form data into DB
         if ($stmt = mysqli_prepare($mysqli, 'INSERT INTO user_has_quiz (userID, quizID) VALUES (?, ?)')) { // Prepare the fields

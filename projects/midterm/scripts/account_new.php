@@ -1,11 +1,9 @@
 <?php
     // Author:      Stephen Floyd
-    // Date:        10/7/17
-    // Assignment:  Project #6
+    // Date:        10/30/17
+    // Assignment:  Midterm
 
-    // All content here is used to help me generate hashed passwords for accounts. Under normal site circumstances, I would build an interface to work with this script, but I'm lazy.
-    // As this file is not part of the assignment, there is no documentation beyond this.
-
+    // Deny access
     session_start();
     if (!isset($_SESSION['user_id']) || $_SESSION['teacher'] == 0) {
       header('Location: index.php');
@@ -13,6 +11,7 @@
 
     require 'connect.inc.php'; //Connect to database
 
+    // Fetch vars
     $username = $_GET["username"];
     $password = $_GET["password"];
     $firstName = $_GET["firstName"];

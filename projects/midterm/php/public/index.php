@@ -1,3 +1,11 @@
+<!--
+Author:      Stephen Floyd
+Date:        10/30/17
+Assignment:  Midterm
+
+This displays the public content for the index page.
+-->
+
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Quizmania</h3>

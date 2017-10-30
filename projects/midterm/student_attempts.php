@@ -1,5 +1,17 @@
-<?php include("../../php/html_head.php") ?>
+<?php
+    // Author:      Stephen Floyd
+    // Date:        10/30/17
+    // Assignment:  Midterm
+    
+    include("../../php/html_head.php")
 
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (!isset($_SESSION['user_id']) || $_SESSION['teacher'] == 0) {
+      header('Location: index.php');
+    }
+?>
   <body>
     <div class="container">
       <div class="header clearfix">
@@ -20,6 +32,7 @@
             include_once("scripts/connect.inc.php");
             $quizID = $_GET['id'];
 
+            // Fetch quiz information
             $query = "SELECT title FROM quiz WHERE id=" .$quizID;
             $query_run = mysqli_query($mysqli, $query);
             $query_array = mysqli_fetch_assoc($query_run);
@@ -47,6 +60,7 @@
                         $score = $query_array['score'];
                         $completed = $query_array['completed'];
 
+                        // Fetch user information
                         $q = "SELECT firstName, lastName FROM user WHERE id=" .$userID;
                         $qr = mysqli_query($mysqli, $q);
                         $qa = mysqli_fetch_assoc($qr);

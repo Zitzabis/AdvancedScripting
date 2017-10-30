@@ -1,12 +1,12 @@
 <?php
     // Author:      Stephen Floyd
-    // Date:        10/7/17
-    // Assignment:  Project #6
+    // Date:        10/30/17
+    // Assignment:  Midterm
 
     // Check if a user is logged in or has the correct permissions to view this page
     // If no, route them back to the site index
     session_start();
-    if (isset($_SESSION['user_id']) || $_SESSION['teacher'] < 1) {
+    if (isset($_SESSION['user_id'])) {
       header('Location: index.php');
     }
 

@@ -1,7 +1,7 @@
 <?php
     // Author:      Stephen Floyd
-    // Date:        10/7/17
-    // Assignment:  Project #6
+    // Date:        10/30/17
+    // Assignment:  Midterm
 
     // Check if a user is logged in or has the correct permissions to view this page
     // If no, route them back to the site index
@@ -13,13 +13,13 @@
     // Connect to DB
     include_once("connect.inc.php");
 
-    // GET which article will be deleted
+    // GET which quiz will be disabled
     $id = $_GET['id'];
 
-    // Active val
+    // Disable val
     $disable = 0;
 
-    // Update article data to be deleted
+    // Update quiz data to be disabled
     if ($stmt = mysqli_prepare($mysqli, "UPDATE quiz SET active=? WHERE id = $id")) {
         mysqli_stmt_bind_param($stmt, "i",  $disable); // Bind data to query
 

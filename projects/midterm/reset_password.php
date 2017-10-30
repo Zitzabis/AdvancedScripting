@@ -1,4 +1,17 @@
-<?php include("../../php/html_head.php") ?>
+<?php
+    // Author:      Stephen Floyd
+    // Date:        10/30/17
+    // Assignment:  Midterm
+    
+    include("../../php/html_head.php")
+
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (!isset($_SESSION['user_id']) || $_SESSION['teacher'] == 0) {
+      header('Location: index.php');
+    }
+?>
 <body>
     <div class="container">
         <div class="header clearfix">
@@ -15,6 +28,7 @@
         <br>
         <br>
         
+        <!-- New Password Form -->
         <form class="form" action="scripts/password_reset.php">
             <?php
                 echo '<input type="hidden" id="user" name="user" value="' . $_GET['user'] . '">'; // Store hidden row information for use later in form
