@@ -38,7 +38,7 @@
             // If query fails
             else {
                 mysqli_stmt_close($stmt); // Close query
-                echo "Error submitting record: " . mysqli_error($mysqli); // Print error
+                echo "Error submitting record: " . $mysqli->error; // Print error
             }  
         }
     }
