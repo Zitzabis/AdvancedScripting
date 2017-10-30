@@ -3,7 +3,7 @@
   // Date:        10/30/17
   // Assignment:  Midterm
 
-  include("../../php/html_head.php")
+  include("../../php/html_head.php");
 
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
