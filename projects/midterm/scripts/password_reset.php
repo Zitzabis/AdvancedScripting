@@ -6,25 +6,24 @@
     // Check if a user is logged in or has the correct permissions to view this page
     // If no, route them back to the site index
     session_start();
-    if (!isset($_SESSION['user_id']) || $_SESSION['permission'] < 1) {
+    if (!isset($_SESSION['user_id']) || $_SESSION['teacher'] == 1) {
       header('Location: index.php');
     }
     
     // Connect to DB
     include_once("connect.inc.php");
 
-    // GET article information
-    $id = $_GET['id'];
-    $title = $_GET['title'];
-    $body = $_GET['body'];
+    // GET which article will be deleted
+    $user = $_GET['user'];
+    $password = $_GET['password'];
 
-    // Update article title, body and edit date
-    if ($stmt = mysqli_prepare($mysqli, "UPDATE `article` SET `title`=?, `body`=?, `date`=(now()) WHERE `article`.`articleID` = $id")) {
-        mysqli_stmt_bind_param($stmt, "ss",  $title, $body); // Bind data to query
+    // Update article data to be deleted
+    if ($stmt = mysqli_prepare($mysqli, "UPDATE user SET passwordHash=? WHERE id=?")) {
+        mysqli_stmt_bind_param($stmt, "si", hash('ripemd160', $password), $user); // Bind data to query
 
         if(mysqli_stmt_execute($stmt)) {
             mysqli_stmt_close($stmt); // Close query
-            header('Location: ../panel.php'); // Route user
+            header('Location: ../index.php'); // Route user
         }
         else {
             mysqli_stmt_close($stmt); // Close query
