@@ -3,14 +3,14 @@
   // Date:        10/30/17
   // Assignment:  Midterm
 
-  include("../../php/html_head.php")
-
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
     if (!isset($_SESSION['user_id']) || $_SESSION['teacher'] == 1) {
     header('Location: index.php');
   }
+
+  include("../../php/html_head.php");
 ?>
   <body>
     <div class="container">

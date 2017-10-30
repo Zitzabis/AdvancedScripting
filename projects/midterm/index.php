@@ -1,4 +1,4 @@
-<?php include("../../php/html_head.php") ?>
+<?php include("../../php/html_head.php"); ?>
 
   <body>
     <div class="container">
